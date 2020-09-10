@@ -8,10 +8,12 @@ namespace CES_Telstar.Controllers
     public class RouteController : ApiController
     {
         private readonly ISecurityService _securityService;
+        private readonly IRouteService _routeService;
 
-        public RouteController(ISecurityService securityService)
+        public RouteController(ISecurityService securityService, IRouteService routeService)
         {
             _securityService = securityService;
+            _routeService = routeService;
         }
 
         [HttpGet]

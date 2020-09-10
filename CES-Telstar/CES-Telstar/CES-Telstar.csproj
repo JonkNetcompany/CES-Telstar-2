@@ -160,10 +160,15 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookingService.cs" />
+    <Compile Include="Services\IBookingService.cs" />
+    <Compile Include="Services\IPackageService.cs" />
+    <Compile Include="Services\IRouteService.cs" />
     <Compile Include="Services\ISecurityService.cs" />
     <Compile Include="Services\PackageService.cs" />
     <Compile Include="Services\RouteService.cs" />
     <Compile Include="Services\SecurityService.cs" />
+    <Compile Include="Util\MinSegment.cs" />
+    <Compile Include="Util\ShortestPathUtil.cs" />
     <Compile Include="ViewModels\DeliveryRoute.cs" />
     <Compile Include="ViewModels\ViewExternalRoute.cs" />
     <Compile Include="ViewModels\ViewRoute.cs" />
@@ -186,6 +191,20 @@
     <None Include="Properties\PublishProfiles\wa-tlpl - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\wa-tlpl - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\wa-tlpl - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\DijkstraAlgorithm\DijkstraAlgorithm.csproj">
+      <Project>{74c8af4c-77b7-44ae-91b7-cd6f762567b2}</Project>
+      <Name>DijkstraAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{30ACFF72-49CD-48EF-9ED2-AD1CD0FACD57}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistence\Persistence.csproj">
+      <Project>{715CC129-D6F5-4154-B941-87AADDA32279}</Project>
+      <Name>Persistence</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

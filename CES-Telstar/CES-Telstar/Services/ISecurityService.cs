@@ -2,6 +2,6 @@
 {
     public interface ISecurityService
     {
-        bool IsAuthenticated(string apiKey);
+        bool IsAuthenticated(string apiKey, bool external = false);
     }
 }
