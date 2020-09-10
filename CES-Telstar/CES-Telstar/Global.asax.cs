@@ -1,8 +1,11 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using CES_Telstar.Services;
 
 namespace CES_Telstar
@@ -12,19 +15,24 @@ namespace CES_Telstar
         protected void Application_Start()
         {
             var container = RegisterServices();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
-        private ContainerBuilder RegisterServices()
+        private IContainer RegisterServices()
         {
             var container = new ContainerBuilder();
 
+            container.RegisterControllers(Assembly.GetExecutingAssembly());
+            container.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             container.RegisterType<SecurityService>().As<ISecurityService>();
 
-            return container;
+            return container.Build();
         }
     }
 }

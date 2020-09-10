@@ -1,26 +1,36 @@
-﻿using System.Web.Configuration;
-using System.Web.Http;
+﻿using System.Web.Http;
 using CES_Telstar.Services;
+using CES_Telstar.ViewModels;
 
 namespace CES_Telstar.Controllers
 {
     public class ExternalController : ApiController
     {
-        private ISecurityService securityService;
+        private readonly ISecurityService _securityService;
 
-        public ExternalController()
+        public ExternalController(ISecurityService securityService)
         {
-            securityService = new SecurityService();
+            _securityService = securityService;
         }
 
         [HttpGet]
         public IHttpActionResult FindRoutes(string apiKey, string startLocationName, string endLocationName)
         {
-            if (!securityService.IsAuthenticated(apiKey))
+            if (!_securityService.IsAuthenticated(apiKey))
             {
                 return Unauthorized();
             }
-            return Ok(apiKey + "," + startLocationName + "," + endLocationName);
+
+            //TODO: Fix mock and return a 404 on missing route
+            var route = new ViewExternalRoute
+            {
+                StartLocation = startLocationName,
+                EndLocation = endLocationName,
+                Time = 4,
+                Price = 52.2
+            };
+
+            return Ok(route);
         }
     }
 }
