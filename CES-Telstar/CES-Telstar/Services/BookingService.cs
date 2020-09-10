@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Domain.Models;
+using Persistence.Context;
 
 namespace CES_Telstar.Services
 {
-    public class BookingService
+    internal class BookingService : IBookingService
     {
+        private readonly RouteContext _context;
+
+        public BookingService(RouteContext context)
+        {
+            _context = context;
+        }
+
+        public bool BookDelivery(Levarance delivery)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

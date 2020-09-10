@@ -7,10 +7,12 @@ namespace CES_Telstar.Controllers
     public class SignatureController : ApiController
     {
         private readonly ISecurityService _securityService;
+        private readonly IPackageService _packageService;
 
-        public SignatureController(ISecurityService securityService)
+        public SignatureController(ISecurityService securityService, IPackageService packageService)
         {
             _securityService = securityService;
+            _packageService = packageService;
         }
 
         [HttpGet]
@@ -21,9 +23,19 @@ namespace CES_Telstar.Controllers
                 return Unauthorized();
             }
 
-            //TODO: check if signature is required
+            var package = _packageService.GetPackage(id);
+            if (package == null)
+            {
+                return NotFound();
+            }
 
-            return Ok(id);
+            var levarance = _packageService.GetLevaranceForPackage(id);
+            if (levarance == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(levarance.Recommended);
         }
 
         [HttpPost]
@@ -34,7 +46,19 @@ namespace CES_Telstar.Controllers
                 return Unauthorized();
             }
 
-            //TODO: Fix mock
+            var package = _packageService.GetPackage(id);
+            if (package == null)
+            {
+                return NotFound();
+            }
+
+            var levarance = _packageService.GetLevaranceForPackage(id);
+            if (levarance == null)
+            {
+                return NotFound();
+            }
+
+            //TODO: levarance.Tracking
 
             return Ok(id + "," + signature);
         }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace CES_Telstar.ViewModels
 {
@@ -10,7 +7,7 @@ namespace CES_Telstar.ViewModels
         public string StartLocation { get; set; }
         public string EndLocation { get; set; }
 
-        //TODO public IList<Location> Locations { get; set; } = new List<string>();
+        public IList<string> Locations { get; set; } = new List<string>();
 
         public double Time { get; set; }
         public double Price { get; set; }

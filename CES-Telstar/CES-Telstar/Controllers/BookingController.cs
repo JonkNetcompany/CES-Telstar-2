@@ -7,10 +7,12 @@ namespace CES_Telstar.Controllers
     public class BookingController : ApiController
     {
         private readonly ISecurityService _securityService;
+        private readonly IBookingService _bookingService;
 
-        public BookingController(ISecurityService securityService)
+        public BookingController(ISecurityService securityService, IBookingService bookingService)
         {
             _securityService = securityService;
+            _bookingService = bookingService;
         }
 
         [HttpPost]

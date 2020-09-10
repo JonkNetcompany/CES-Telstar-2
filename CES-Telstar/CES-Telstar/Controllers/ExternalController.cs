@@ -9,16 +9,18 @@ namespace CES_Telstar.Controllers
     public class ExternalController : ApiController
     {
         private readonly ISecurityService _securityService;
+        private readonly IRouteService _routeService;
 
-        public ExternalController(ISecurityService securityService)
+        public ExternalController(ISecurityService securityService, IRouteService routeService)
         {
             _securityService = securityService;
+            _routeService = routeService;
         }
 
         [HttpGet]
         public IHttpActionResult FindRoutes(string apiKey, string startLocationName, string endLocationName)
         {
-            if (!_securityService.IsAuthenticated(apiKey))
+            if (!_securityService.IsAuthenticated(apiKey, true))
             {
                 return Unauthorized();
             }
