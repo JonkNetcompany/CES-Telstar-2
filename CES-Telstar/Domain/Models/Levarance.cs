@@ -8,12 +8,12 @@ namespace Domain.Models
     public class Levarance
     {
         public int ID { get; set; }
-        public Route Route { get; set; }
-        public int Time { get; set; }
-        public float Price { get; set; }
+        public virtual Route Route { get; set; }
+        public double Time { get; set; }
+        public double Price { get; set; }
         public bool Recommended { get; set; }
-        public Package Package { get; set; }
-        public Tracking Tracking { get; set; }
-        public IEnumerable<Driver> Drivers { get; set; }
+        public virtual Package Package { get; set; }
+        public virtual Tracking Tracking { get; set; }
+        public virtual ICollection<Driver> Drivers { get; set; }
     }
 }

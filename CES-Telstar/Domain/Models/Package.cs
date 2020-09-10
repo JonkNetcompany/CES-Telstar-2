@@ -6,14 +6,14 @@
         Weapons,
         LiveAnimals,
         CautiousParcels,
-        RefigeratedGoods
+        RefrigeratedGoods
     }
 
     public class Package
     {
         public int ID { get; set; }
-        public PackageType PackageType { get; set; }
-        public float Weight { get; set; }
-        public Location Location { get; set; }
+        public virtual PackageType PackageType { get; set; }
+        public double Weight { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
