@@ -1,9 +1,11 @@
 ﻿using System.Web.Http;
 using CES_Telstar.Services;
 using CES_Telstar.ViewModels;
+using System.Web.Http.Cors;
 
 namespace CES_Telstar.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ExternalController : ApiController
     {
         private readonly ISecurityService _securityService;
