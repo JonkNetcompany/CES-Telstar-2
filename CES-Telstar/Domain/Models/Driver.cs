@@ -1,4 +1,4 @@
-﻿namespace CES_Telstar.Models
+﻿namespace Domain.Models
 {
     public enum Company
     {
