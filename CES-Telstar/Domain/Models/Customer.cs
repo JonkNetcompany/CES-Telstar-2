@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CES_Telstar.Models
+namespace Domain.Models
 {
-    public class Route
+    public class Customer
     {
         public int ID { get; set; }
-        public IEnumerable<Segment> Segments { get; set; }
+        public string Name { get; set; }
+        public Location Location { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CES_Telstar.Models
+﻿namespace Domain.Models
 {
     public enum PackageType
     {
@@ -13,5 +13,7 @@
     {
         public int ID { get; set; }
         public PackageType PackageType { get; set; }
+        public float Weight { get; set; }
+        public Location Location { get; set; }
     }
 }
