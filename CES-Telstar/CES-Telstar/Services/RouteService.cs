@@ -20,7 +20,7 @@ namespace CES_Telstar.Services
             _context = context;
 
             var segments = context.Segments.Include(s => s.Locations);
-            _locations = segments.SelectMany(s => s.Locations).Distinct();
+            _locations = segments.SelectMany(s => s.Locations);
                 
             _pathUtil = new ShortestPathUtil(segments, _locations);
         }
@@ -51,7 +51,7 @@ namespace CES_Telstar.Services
 
         private Route FindFastestByCar(Location start, Location end)
         {
-            var path = _pathUtil.FindFastestPath(start, end);
+            var path = _pathUtil.FindFastest(start, end);
             return RouteFromPath(path);
         }
 

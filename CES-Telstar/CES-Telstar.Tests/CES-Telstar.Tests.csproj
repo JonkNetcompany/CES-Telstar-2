@@ -49,18 +49,27 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Services\RouteServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\DijkstraAlgorithm\DijkstraAlgorithm.csproj">
+      <Project>{74C8AF4C-77B7-44AE-91B7-CD6F762567B2}</Project>
+      <Name>DijkstraAlgorithm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CES-Telstar\CES-Telstar.csproj">
+      <Project>{8E452632-67C4-416E-944B-6F77D230EA11}</Project>
+      <Name>CES-Telstar</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{30ACFF72-49CD-48EF-9ED2-AD1CD0FACD57}</Project>
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

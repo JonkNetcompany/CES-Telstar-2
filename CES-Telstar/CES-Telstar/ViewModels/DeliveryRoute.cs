@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace CES_Telstar.ViewModels
+﻿namespace CES_Telstar.ViewModels
 {
     public class DeliveryRoute
     {
-        //TODO public List<Route>
+        public string Start { get; set; }
+        public string End { get; set; }
         public double Time { get; set; }
         public double Price { get; set; }
         public bool HasShipping { get; set; }

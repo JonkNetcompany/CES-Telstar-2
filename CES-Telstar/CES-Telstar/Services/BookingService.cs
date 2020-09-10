@@ -3,7 +3,7 @@ using Persistence.Context;
 
 namespace CES_Telstar.Services
 {
-    internal class BookingService : IBookingService
+    public class BookingService : IBookingService
     {
         private readonly RouteContext _context;
 
@@ -14,7 +14,8 @@ namespace CES_Telstar.Services
 
         public bool BookDelivery(Levarance delivery)
         {
-            throw new System.NotImplementedException();
+            //TODO
+            return true;
         }
     }
 }
