@@ -60,6 +60,22 @@
     <Compile Include="Migrations\202009101238576_more_models.designer.cs">
       <DependentUpon>202009101238576_more_models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009101421428_AddTransportationTypeToSegmet.cs" />
+    <Compile Include="Migrations\202009101421428_AddTransportationTypeToSegmet.designer.cs">
+      <DependentUpon>202009101421428_AddTransportationTypeToSegmet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101830294_icollection.cs" />
+    <Compile Include="Migrations\202009101830294_icollection.designer.cs">
+      <DependentUpon>202009101830294_icollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101856335_double.cs" />
+    <Compile Include="Migrations\202009101856335_double.designer.cs">
+      <DependentUpon>202009101856335_double.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101959597_more_double.cs" />
+    <Compile Include="Migrations\202009101959597_more_double.designer.cs">
+      <DependentUpon>202009101959597_more_double.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +89,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009101238576_more_models.resx">
       <DependentUpon>202009101238576_more_models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101421428_AddTransportationTypeToSegmet.resx">
+      <DependentUpon>202009101421428_AddTransportationTypeToSegmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101830294_icollection.resx">
+      <DependentUpon>202009101830294_icollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101856335_double.resx">
+      <DependentUpon>202009101856335_double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101959597_more_double.resx">
+      <DependentUpon>202009101959597_more_double.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,6 @@ namespace Domain.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

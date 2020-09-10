@@ -4,6 +4,6 @@
     {
         public int ID { get; set; }
         public string signature { get; set; }
-        public Customer MyProperty { get; set; }
+        public virtual Customer MyProperty { get; set; }
     }
 }

@@ -5,11 +5,19 @@ using System.Web;
 
 namespace Domain.Models
 {
+    public enum TransportationType
+    {
+        car,
+        plane,
+        boat
+    }
+
     public class Segment
     {
         public int ID { get; set; }
-        public IEnumerable<Location> Locations { get; set; }
-        public int Time { get; set; }
-        public float Price { get; set; }
+        public virtual ICollection<Location> Locations { get; set; }
+        public double Time { get; set; }
+        public double Price { get; set; }
+        public virtual TransportationType TransportationType { get; set; }
     }
 }

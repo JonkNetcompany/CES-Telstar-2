@@ -8,6 +8,6 @@ namespace Domain.Models
 {
     public class Route : Entity
     {
-        public IEnumerable<Segment> Segments { get; set; }
+        public virtual ICollection<Segment> Segments { get; set; }
     }
 }
