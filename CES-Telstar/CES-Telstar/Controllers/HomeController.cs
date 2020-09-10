@@ -8,11 +8,9 @@ namespace CES_Telstar.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public string Index()
         {
-            ViewBag.Title = "Home Page";
-
-            return View();
+            return "Landing page";
         }
     }
 }
