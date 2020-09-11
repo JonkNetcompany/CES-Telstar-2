@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using CES_Telstar.Services;
+using CES_Telstar.Util;
 using CES_Telstar.ViewModels;
 
 namespace CES_Telstar.Controllers
@@ -23,9 +24,13 @@ namespace CES_Telstar.Controllers
                 return Unauthorized();
             }
 
-            //TODO: Fix mock
+            var delivery = Mapper.MapFromDeliveryRoute(deliveryRoute);
 
-            return Ok(deliveryRoute);
+            var isBooked = _bookingService.BookDelivery(delivery);
+
+            return Ok(isBooked);
         }
+
+
     }
 }

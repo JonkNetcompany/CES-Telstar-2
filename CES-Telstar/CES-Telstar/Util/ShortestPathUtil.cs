@@ -23,15 +23,27 @@ namespace CES_Telstar.Util
         private void BuildPathFinder(IEnumerable<Segment> segments, IEnumerable<Location> locations, bool cheapest)
         {
             var builder = new GraphBuilder();
-            foreach (var location in locations.ToList())
+            var distinctLocations = new List<Location>();
+            foreach (var loc in locations)
+            {
+                if (!distinctLocations.Any(l => l.CityName == loc.CityName))
+                {
+                    distinctLocations.Add(loc);
+                }
+            }
+
+            foreach (var location in distinctLocations)
             {
                 builder.AddNode(location.CityName);
+
+                var temp = segments.Where(s => s.Locations.Any(l => l.CityName == location.CityName)).ToList();
+
                 var otherLocations = segments
-                    .Where(s => s.Locations.Contains(location))
+                    .Where(s => s.Locations.Any(l => l.CityName == location.CityName))
                     .Select(s =>
                         new MinSegment
                         {
-                            Location = s.Locations.First(l => l != location),
+                            Location = s.Locations.First(l => l.CityName != location.CityName),
                             Cost = cheapest ? s.Price : s.Time
                         });
 
@@ -62,7 +74,7 @@ namespace CES_Telstar.Util
             return _cheapestPathFinder.FindShortestPath(origin, destination);
         }
 
-        public Path FindFastestPath(Location start, Location end)
+        public Path FindFastest(Location start, Location end)
         {
             var origin = _fastestGraph.Nodes.Single(n => n.Id == start.CityName);
             var destination = _fastestGraph.Nodes.Single(n => n.Id == end.CityName);

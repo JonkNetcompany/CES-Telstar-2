@@ -34,6 +34,7 @@ namespace CES_Telstar
             container.RegisterType<RouteContext>();
 
             container.RegisterType<BookingService>().As<IBookingService>();
+            container.RegisterType<LocationService>().As<ILocationService>();
             container.RegisterType<PackageService>().As<IPackageService>();
             container.RegisterType<RouteService>().As<IRouteService>();
             container.RegisterType<SecurityService>().As<ISecurityService>();

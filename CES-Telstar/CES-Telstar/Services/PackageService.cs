@@ -4,7 +4,7 @@ using Persistence.Context;
 
 namespace CES_Telstar.Services
 {
-    internal class PackageService : IPackageService
+    public class PackageService : IPackageService
     {
         private readonly RouteContext _context;
 
